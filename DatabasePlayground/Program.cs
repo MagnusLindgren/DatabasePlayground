@@ -53,7 +53,8 @@ namespace DatabasePlayground
                   
                     int output_lines = 0;
                     while (reader.Read())
-                    {                       
+                    {                     
+                        // DB outputs
                         string gameTitle = reader.GetString(0);
                         string publisher = (reader.IsDBNull(1) ? "no info" : reader.GetString(1));
                         string year = (reader.IsDBNull(2) ? "no info" : reader.GetString(2));
@@ -67,8 +68,9 @@ namespace DatabasePlayground
                         output_lines++;
                         if (output_lines == 10)
                         {
-                            Console.WriteLine("\n\nPress any key to continue...\n");
+                            Console.WriteLine("\nPress any key to continue...\n");
                             Console.ReadKey(true);
+
                             output_lines = 0;
                         }
                     }
@@ -77,7 +79,7 @@ namespace DatabasePlayground
             
             static void ColumnOutput(string in1, string in2, string in3, string in4, string in5, string in6, string in7)
             {
-                Console.WriteLine($"{in1,-50}" +  $"{in2, -20}" + $"{in3,-15}" + $"{in4,-35}" + $"{in5,-20}" + $"{in6,-20}" + $"{in7,-20}");                
+                Console.WriteLine($"{in1, -50}" + "| " + $"{in2, -20}" + "| " + $"{in3, 10}" + "| " + $"{in4, -35}" + "| " + $"{in5, 12}" + "| " + $"{in6, 10}" + "| " + $"{in7, -20}");                
             }
         }
     }
