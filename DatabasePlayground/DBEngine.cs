@@ -9,6 +9,8 @@ namespace DatabasePlayground
 {
     class DBEngine
     {
+
+
         public static void DatabaseHandler()
         {
             Console.SetWindowSize(185, 40); // To make the database fit in the window
@@ -54,7 +56,7 @@ namespace DatabasePlayground
                     int output_lines = 0;
                     while (reader.Read())
                     {
-                        // DB outputs
+                        // DB outputs                        
                         string gameTitle = reader.GetString(0);
                         string publisher = (reader.IsDBNull(1) ? "no info" : reader.GetString(1));
                         string year = (reader.IsDBNull(2) ? "no info" : reader.GetString(2));
@@ -62,7 +64,7 @@ namespace DatabasePlayground
                         string review = (reader.IsDBNull(4) ? "no info" : reader.GetString(4));
                         string sales = (reader.IsDBNull(5) ? "no info" : reader.GetString(5));
                         string console = (reader.IsDBNull(6) ? "no info" : reader.GetString(6));
-
+                        
                         ColumnOutput(gameTitle, publisher, year, genres, review, sales, console);
 
                         output_lines++;
@@ -81,6 +83,21 @@ namespace DatabasePlayground
             static void ColumnOutput(string in1, string in2, string in3, string in4, string in5, string in6, string in7)
             {
                 Console.WriteLine($"{in1,-50}" + "| " + $"{in2,-20}" + "| " + $"{in3,10}" + "| " + $"{in4,-35}" + "| " + $"{in5,12}" + "| " + $"{in6,10}" + "| " + $"{in7,-20}");
+            }
+
+            static void DBInsert(string input, string connection_string)
+            {
+                using (var connection = new SqliteConnection(connection_string))
+                {
+                    connection.Open();
+                    var command = connection.CreateCommand();
+                    command.CommandText =
+                        $@"
+                        SELECT Title, Publishers, Year, Genres, Review_Score, Sales, Console                           
+                        FROM video_games
+                        ORDER by Review_Score DESC
+                    ";
+                }
             }
         }
 

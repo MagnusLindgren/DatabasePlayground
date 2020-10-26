@@ -11,7 +11,26 @@ namespace DatabasePlayground
     {
         static void Main(string[] args)
         {
-            DBEngine.DatabaseHandler();
+            while (true)
+            {
+                Console.WriteLine("Database Menu");
+                Console.WriteLine("1) View the database");
+                Console.WriteLine("2) Add to the database");
+
+                var input = Console.ReadLine();
+
+                switch (input)
+                {
+                    case "1":
+                        DBEngine.DatabaseHandler();
+                        break;
+                    case "2":
+                        // DBEngine.DBInsert();
+                        break;
+                    default:
+                        break;
+                }
+            }
            
         }
     }
