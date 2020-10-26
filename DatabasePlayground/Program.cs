@@ -22,6 +22,7 @@ namespace DatabasePlayground
                 switch (input)
                 {
                     case "1":
+                        DBEngine test = new DBEngine("video_games_v03.db");
                         DBEngine.DatabaseHandler();
                         break;
                     case "2":
