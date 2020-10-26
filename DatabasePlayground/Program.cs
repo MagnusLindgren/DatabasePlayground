@@ -26,7 +26,7 @@ namespace DatabasePlayground
                         DBEngine.DatabaseHandler();
                         break;
                     case "2":
-                        //DBEngine.DBInsert();
+                        
                         break;
                     default:
                         break;
