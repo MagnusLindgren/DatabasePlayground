@@ -26,13 +26,17 @@ namespace DatabasePlayground
                         DBEngine.DatabaseHandler();
                         break;
                     case "2":
-                        
+                        DBEngine.Command("SELECT * FROM video_games");
                         break;
                     default:
                         break;
                 }
             }
            
+        }
+        static void Insert()
+        {
+
         }
     }
 }

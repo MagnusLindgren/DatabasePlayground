@@ -23,7 +23,7 @@ namespace DatabasePlayground
             connection.Open();
         }
 
-        static SqliteCommand Command(string input)
+        public static SqliteCommand Command(string input)
         {
             var command = connection.CreateCommand();
             command.CommandText = input;
