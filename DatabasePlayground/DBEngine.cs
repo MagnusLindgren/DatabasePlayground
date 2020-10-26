@@ -93,10 +93,8 @@ namespace DatabasePlayground
                     var command = connection.CreateCommand();
                     command.CommandText =
                         $@"
-                        SELECT Title, Publishers, Year, Genres, Review_Score, Sales, Console                           
-                        FROM video_games
-                        ORDER by Review_Score DESC
-                    ";
+                            {input}
+                        ";
                 }
             }
         }
