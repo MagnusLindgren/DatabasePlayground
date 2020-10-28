@@ -35,7 +35,7 @@ namespace DatabasePlayground
             Console.SetWindowSize(185, 40); // To make the database fit in the window
 
             
-            using (var reader = Command($@"SELECT Title, Publishers, Year, Genres, Review_Score, Sales, Console FROM video_games").ExecuteReader())
+            using (var reader = Command($@"SELECT * FROM video_games").ExecuteReader())
             {
                 // METADATA outputs
                 string[] column = new string[reader.FieldCount];
@@ -75,7 +75,7 @@ namespace DatabasePlayground
                 }
             }
 
-            static void ColumnOutput(string in1, string in2, string in3, string in4, string in5, string in6, string in7)
+            static void ColumnOutput(string in1, string in2, string in3, string in4, string in5, string in6, string in7) // needs reworking to work with all cases
             {
                 Console.WriteLine($"{in1,-50}" + "| " + $"{in2,-20}" + "| " + $"{in3,10}" + "| " + $"{in4,-35}" + "| " + $"{in5,12}" + "| " + $"{in6,10}" + "| " + $"{in7,-20}");
             }
